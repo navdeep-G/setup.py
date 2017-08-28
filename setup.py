@@ -7,6 +7,7 @@ import sys
 
 from setuptools import find_packages, setup
 
+# Package meta-data.
 NAME = 'mypackage'
 DESCRIPTION = 'Sacred Marriage of Pipfile, Pip, & Virtualenv.'
 URL = 'https://github.com/kennethreitz/pipenv'
@@ -15,17 +16,21 @@ AUTHOR = 'Kenneth Reitz'
 
 here = os.path.abspath(os.path.dirname(__file__))
 
+# Import the README and use it as the long-description.
 with codecs.open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = '\n' + f.read()
 
+# Load the package's __about__.py module as a dictionary. 
 about = {}
 with open(os.path.join(here, NAME, "__version__.py")) as f:
     exec(f.read(), about)
 
+# Support "$ setup.py publish".
 if sys.argv[-1] == "publish":
     os.system("python setup.py sdist bdist_wheel upload")
     sys.exit()
 
+# What packages are required for this module to be executed?
 required = [
     # 'requests',
     # 'maya',
@@ -33,7 +38,8 @@ required = [
 
 # if sys.version_info < (2, 7):
 #     required.append('requests[security]')
-   
+
+# Where the magic happens:
 setup(
     name=NAME',
     version=about['__version__'],
