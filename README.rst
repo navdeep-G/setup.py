@@ -12,7 +12,7 @@ This repo exists to provide an `example setup.py <https://github.com/kennethreit
 To Do
 -----
 
-- Tests via ``$setup.py test``.
+- Tests via ``$ setup.py test``.
 - Universal wheels in ``$ publish commmand``.
 
 Pull requests are encouraged!
