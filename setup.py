@@ -32,9 +32,7 @@ if sys.argv[-1] == "publish":
 
 # What packages are required for this module to be executed?
 required = [
-    # 'requests',
-    # 'maya',
-    # 'records',
+    # 'requests', 'maya', 'records',
 ]
 
 # if sys.version_info < (2, 7):
