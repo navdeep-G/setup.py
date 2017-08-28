@@ -1,5 +1,5 @@
-setup.py (for humans)
-=====================
+📦 setup.py (for humans)
+========================
 
 This repo exists to provide an `example setup.py <https://github.com/kennethreitz/setup.py/blob/master/setup.py>`_ file, that can be used to bootstrap your next Python project. It includes some advanced patterns and best practices for ``setup.py``, as well as some commented-out nice-to-haves.
 
