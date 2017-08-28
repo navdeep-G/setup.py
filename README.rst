@@ -5,7 +5,7 @@ This repo exists to provide an `example setup.py <https://github.com/kennethreit
 
 ``setup.py`` files can be daunting to approach, when first starting out — even Guido has been heard saying, "everyone cargo cults thems". It's true — so, I want this repo to be the best place to copy–paste from :)
 
-`**example setup.py** <https://github.com/kennethreitz/setup.py/blob/master/setup.py>`_
+`Check out the example! <https://github.com/kennethreitz/setup.py/blob/master/setup.py>`_
 
 ✨🍰✨
 
