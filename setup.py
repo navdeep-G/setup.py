@@ -34,6 +34,7 @@ if sys.argv[-1] == "publish":
 required = [
     # 'requests',
     # 'maya',
+    # 'records',
 ]
 
 # if sys.version_info < (2, 7):
