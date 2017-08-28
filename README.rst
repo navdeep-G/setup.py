@@ -14,7 +14,5 @@ To Do
 
 - Tests via ``$setup.py test``.
 - Universal wheels in ``$ publish commmand``.
-- ``LICENSE``
-- ``MANIFEST.in``
 
 Pull requests are encouraged!
