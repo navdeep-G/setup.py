@@ -50,7 +50,7 @@ setup(
     url=URL,
     packages=find_packages(exclude=('tests',)),
 #     entry_points={
-#         'console_scripts': ['pipenv=pipenv:cli'],
+#         'console_scripts': ['mycli=mymodule:cli'],
 #     },
     install_requires=required,
     include_package_data=True,
