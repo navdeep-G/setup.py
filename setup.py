@@ -9,10 +9,10 @@ from setuptools import find_packages, setup
 
 # Package meta-data.
 NAME = 'mypackage'
-DESCRIPTION = 'Sacred Marriage of Pipfile, Pip, & Virtualenv.'
-URL = 'https://github.com/kennethreitz/pipenv'
-EMAIL = 'me@kennethreitz.org'
-AUTHOR = 'Kenneth Reitz'
+DESCRIPTION = 'My short description for my project. '
+URL = 'https://github.com/me/myproject'
+EMAIL = 'me@example.com'
+AUTHOR = 'Awesome Soul'
 
 here = os.path.abspath(os.path.dirname(__file__))
 
