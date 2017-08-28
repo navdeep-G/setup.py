@@ -13,6 +13,6 @@ To Do
 -----
 
 - Tests via ``$ setup.py test``.
-- Universal wheels in ``$ publish commmand``.
+- Universal wheels in ``$ setup.py publish``.
 
 Pull requests are encouraged!
