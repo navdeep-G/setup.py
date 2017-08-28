@@ -48,7 +48,7 @@ setup(
 #     },
     install_requires=required,
     include_package_data=True,
-    license='MIT',
+    license='ISC',
     classifiers=[
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
