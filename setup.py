@@ -13,7 +13,6 @@ DESCRIPTION = 'My short description for my project. '
 URL = 'https://github.com/me/myproject'
 EMAIL = 'me@example.com'
 AUTHOR = 'Awesome Soul'
-LICENSE = "ISC"
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -55,7 +54,7 @@ setup(
 #     },
     install_requires=required,
     include_package_data=True,
-    license=LICENSE,
+    license='ISC',
     classifiers=[
         'License :: OSI Approved :: ISC License',
         'Programming Language :: Python',
