@@ -43,7 +43,7 @@ with open(os.path.join(here, NAME, '__version__.py')) as f:
 class PublishCommand(Command):
     """Support setup.py publish."""
 
-    description = "Build and publish the package."
+    description = 'Build and publish the package.'
     user_options = []
     
     @staticmethod
