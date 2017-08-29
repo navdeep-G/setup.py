@@ -16,3 +16,8 @@ To Do
 - Universal wheels in ``$ setup.py publish``.
 
 Pull requests are encouraged!
+
+More Resources
+--------------
+
+- [The Hitchhiker's Guide to Packaging](https://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/creation.html)
