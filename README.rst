@@ -14,7 +14,7 @@ In short, ``setup.py`` files can be daunting to approach, when first starting ou
 To Do
 -----
 
-- Tests via ``$ setup.py test``.
+- Tests via ``$ setup.py test`` (if it's concise).
 
 Pull requests are encouraged!
 
