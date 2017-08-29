@@ -46,7 +46,7 @@ if sys.argv[-1] == "publish":
     except FileNotFoundError:
         pass
 
-    # Create Source and Wheel (universal) distributions
+    # Create Source and Wheel (universal) distributions.
     os.system("{0} setup.py sdist bdist_wheel --universal ".format(sys.executable))
 
     # Upload the package to PyPi.
