@@ -25,16 +25,16 @@ about = {}
 with open(os.path.join(here, NAME, "__version__.py")) as f:
     exec(f.read(), about)
 
-# Support "$ setup.py publish".
-if sys.argv[-1] == "publish":
-    os.system("{0} setup.py sdist bdist_wheel upload".format(sys.executable))
-    sys.exit()
-
 # What packages are required for this module to be executed?
 required = [
     # 'requests', 'maya', 'records',
 ]
 
+# Support "$ setup.py publish".
+if sys.argv[-1] == "publish":
+    os.system("{0} setup.py sdist bdist_wheel upload".format(sys.executable))
+    sys.exit()
+    
 # Dependencies only for versions less than Python 2.7:
 # if sys.version_info < (2, 7):
 #     required.append('requests[security]')
