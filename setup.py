@@ -56,6 +56,8 @@ setup(
     include_package_data=True,
     license='ISC',
     classifiers=[
+        # Trove classifiers
+        # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
         'License :: OSI Approved :: ISC License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.6',
