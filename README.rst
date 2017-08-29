@@ -23,3 +23,4 @@ More Resources
 
 - `What is setup.py? <https://stackoverflow.com/questions/1471994/what-is-setup-py>`_ on Stack Overflow
 - `The Hitchhiker's Guide to Packaging <https://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/creation.html>`_
+- `Cookiecutter template for a Python package <https://github.com/audreyr/cookiecutter-pypackage>`_
