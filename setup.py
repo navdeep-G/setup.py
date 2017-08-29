@@ -27,7 +27,7 @@ with open(os.path.join(here, NAME, "__version__.py")) as f:
 
 # Support "$ setup.py publish".
 if sys.argv[-1] == "publish":
-    os.system("python setup.py sdist bdist_wheel upload")
+    os.system("{} setup.py sdist bdist_wheel upload".format(sys.executable))
     sys.exit()
 
 # What packages are required for this module to be executed?
