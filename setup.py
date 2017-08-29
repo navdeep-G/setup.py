@@ -27,6 +27,11 @@ REQUIRED = [
 # ------------------------------------------------
 # Except, perhaps the License and Trove Classifiers!
 
+try:
+    FileNotFoundError            # Python 3
+except NameError:
+    FileNotFoundError = IOError  # Python 2
+
 here = os.path.abspath(os.path.dirname(__file__))
 
 # Import the README and use it as the long-description.
@@ -45,7 +50,7 @@ class PublishCommand(Command):
 
     description = 'Build and publish the package.'
     user_options = []
-    
+
     @staticmethod
     def status(s):
         """Prints things in bold."""
@@ -65,7 +70,8 @@ class PublishCommand(Command):
             pass
 
         self.status('Building Source and Wheel (universal) distribution…')
-        os.system('{0} setup.py sdist bdist_wheel --universal '.format(sys.executable))
+        fmt = '{0} setup.py sdist bdist_wheel --universal '
+        os.system(fmt.format(sys.executable))
 
         self.status('Uploading the package to PyPi via Twine…')
         os.system('twine upload dist/*')
@@ -97,17 +103,17 @@ setup(
         # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
         'License :: OSI Approved :: ISC License',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2.6',
+        # 'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
+        # 'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy'
     ],
-    # $ setup.py publish support. 
+    # $ setup.py publish support.
     cmdclass={
         'publish': PublishCommand,
     },
