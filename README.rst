@@ -20,4 +20,5 @@ Pull requests are encouraged!
 More Resources
 --------------
 
+- `What is setup.py? <https://stackoverflow.com/questions/1471994/what-is-setup-py>` on Stack Overflow
 - `The Hitchhiker's Guide to Packaging <https://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/creation.html>`_.
