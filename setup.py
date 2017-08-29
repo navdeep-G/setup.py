@@ -1,11 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+# Note: To use the 'upload' functionality of this file, you must:
+#   $ pip install twine
+
 import codecs
 import os
 import sys
 
 from setuptools import find_packages, setup
+from shutil import rmtree
 
 # Package meta-data.
 NAME = 'mypackage'
@@ -36,8 +40,19 @@ required = [
 
 # Support "$ setup.py publish".
 if sys.argv[-1] == "publish":
-    os.system("{0} setup.py sdist bdist_wheel upload".format(sys.executable))
-    sys.exit()  
+    try:
+        # Remove previous builds from the source tree.
+        rmtree(os.sep.join(('.', 'dist')))
+    except FileNotFoundError:
+        pass
+
+    # Create Source and Wheel (universal) distributions
+    os.system("{0} setup.py sdist bdist_wheel --universal ".format(sys.executable))
+
+    # Upload the package to PyPi.
+    os.system("twine upload dist/*")
+
+    sys.exit()
 
 # Where the magic happens:
 setup(
