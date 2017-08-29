@@ -25,7 +25,7 @@ REQUIRED = [
 
 # The rest you shouldn't have to touch too much :)
 # ------------------------------------------------
-# Except, perhaps the license!
+# Except, perhaps the License and Trove Classifiers!
 
 here = os.path.abspath(os.path.dirname(__file__))
 
