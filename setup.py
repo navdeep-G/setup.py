@@ -8,7 +8,7 @@ import codecs
 import os
 import sys
 
-from setuptools import find_packages, setup
+from setuptools import find_packages, setup, Command
 from shutil import rmtree
 
 # Package meta-data.
@@ -17,6 +17,18 @@ DESCRIPTION = 'My short description for my project. '
 URL = 'https://github.com/me/myproject'
 EMAIL = 'me@example.com'
 AUTHOR = 'Awesome Soul'
+
+# What packages are required for this module to be executed?
+REQUIRED = [
+    # 'requests', 'maya', 'records',
+]
+
+# Dependencies only for versions less than Python 2.7:
+# if sys.version_info < (2, 7):
+#     REQUIRED.append('requests[security]')
+
+# The rest you shouldn't have to touch too much :)
+# ------------------------------------------------
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -29,30 +41,38 @@ about = {}
 with open(os.path.join(here, NAME, "__version__.py")) as f:
     exec(f.read(), about)
 
-# What packages are required for this module to be executed?
-required = [
-    # 'requests', 'maya', 'records',
-]
+def status(s):
+    """Prints things in bold."""
+    print('\033[1m{0}\033[0m'.format(s))
 
-# Dependencies only for versions less than Python 2.7:
-# if sys.version_info < (2, 7):
-#     required.append('requests[security]')
 
-# Support "$ setup.py publish".
-if sys.argv[-1] == "publish":
-    try:
-        # Remove previous builds from the source tree.
-        rmtree(os.sep.join(('.', 'dist')))
-    except FileNotFoundError:
+class PublishCommand(Command):
+    """Support setup.py publish."""
+
+    description = "Build and publish the package."
+    user_options = []
+
+    def initialize_options(self):
         pass
 
-    # Create Source and Wheel (universal) distributions.
-    os.system("{0} setup.py sdist bdist_wheel --universal ".format(sys.executable))
+    def finalize_options(self):
+        pass
 
-    # Upload the package to PyPi.
-    os.system("twine upload dist/*")
+    def run(self):
+        try:
+            status('Removing previous builds...')
+            rmtree(os.sep.join(('.', 'dist')))
+        except FileNotFoundError:
+            pass
 
-    sys.exit()
+        status('Building Source and Wheel (universal) distribution...')
+        os.system("{0} setup.py sdist bdist_wheel --universal ".format(sys.executable))
+
+        status('Uploading the package to PyPi via Twine...')
+        os.system("twine upload dist/*")
+
+        sys.exit()
+
 
 # Where the magic happens:
 setup(
@@ -64,10 +84,13 @@ setup(
     author_email=EMAIL,
     url=URL,
     packages=find_packages(exclude=('tests',)),
-#     entry_points={
-#         'console_scripts': ['mycli=mymodule:cli'],
-#     },
-    install_requires=required,
+    # If your package is a single module, use this instead of 'packages':
+    # py_modules=['mypackage'],
+
+    # entry_points={
+    #     'console_scripts': ['mycli=mymodule:cli'],
+    # },
+    install_requires=REQUIRED,
     include_package_data=True,
     license='ISC',
     classifiers=[
@@ -85,4 +108,8 @@ setup(
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy'
     ],
+    # $ setup.py publish support. 
+    cmdclass={
+        'publish': PublishCommand,
+    },
 )
