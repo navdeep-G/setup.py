@@ -23,12 +23,9 @@ REQUIRED = [
     # 'requests', 'maya', 'records',
 ]
 
-# Dependencies only for versions less than Python 2.7:
-# if sys.version_info < (2, 7):
-#     REQUIRED.append('requests[security]')
-
 # The rest you shouldn't have to touch too much :)
 # ------------------------------------------------
+# Except, perhaps the license!
 
 here = os.path.abspath(os.path.dirname(__file__))
 
