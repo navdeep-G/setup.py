@@ -61,15 +61,15 @@ class PublishCommand(Command):
 
     def run(self):
         try:
-            self.status('Removing previous builds...')
+            self.status('Removing previous builds…')
             rmtree(os.sep.join(('.', 'dist')))
         except FileNotFoundError:
             pass
 
-        self.status('Building Source and Wheel (universal) distribution...')
+        self.status('Building Source and Wheel (universal) distribution…')
         os.system('{0} setup.py sdist bdist_wheel --universal '.format(sys.executable))
 
-        self.status('Uploading the package to PyPi via Twine...')
+        self.status('Uploading the package to PyPi via Twine…')
         os.system('twine upload dist/*')
 
         sys.exit()
