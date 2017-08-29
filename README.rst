@@ -15,7 +15,6 @@ To Do
 -----
 
 - Tests via ``$ setup.py test``.
-- Universal wheels in ``$ setup.py publish``.
 
 Pull requests are encouraged!
 
