@@ -38,7 +38,7 @@ with codecs.open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 # Load the package's __version__.py module as a dictionary.
 about = {}
-with open(os.path.join(here, NAME, "__version__.py")) as f:
+with open(os.path.join(here, NAME, '__version__.py')) as f:
     exec(f.read(), about)
 
 
@@ -67,10 +67,10 @@ class PublishCommand(Command):
             pass
 
         self.status('Building Source and Wheel (universal) distribution...')
-        os.system("{0} setup.py sdist bdist_wheel --universal ".format(sys.executable))
+        os.system('{0} setup.py sdist bdist_wheel --universal '.format(sys.executable))
 
         self.status('Uploading the package to PyPi via Twine...')
-        os.system("twine upload dist/*")
+        os.system('twine upload dist/*')
 
         sys.exit()
 
