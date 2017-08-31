@@ -11,15 +11,6 @@ In short, ``setup.py`` files can be daunting to approach, when first starting ou
 
 ✨🍰✨
 
-License
--------
-
-This is free and unencumbered software released into the public domain.
-
-Anyone is free to copy, modify, publish, use, compile, sell, or
-distribute this software, either in source code form or as a compiled
-binary, for any purpose, commercial or non-commercial, and by any
-means.
 
 To Do
 -----
@@ -34,3 +25,14 @@ More Resources
 - `What is setup.py? <https://stackoverflow.com/questions/1471994/what-is-setup-py>`_ on Stack Overflow
 - `The Hitchhiker's Guide to Packaging <https://the-hitchhikers-guide-to-packaging.readthedocs.io/en/latest/creation.html>`_
 - `Cookiecutter template for a Python package <https://github.com/audreyr/cookiecutter-pypackage>`_
+
+
+License
+-------
+
+This is free and unencumbered software released into the public domain.
+
+Anyone is free to copy, modify, publish, use, compile, sell, or
+distribute this software, either in source code form or as a compiled
+binary, for any purpose, commercial or non-commercial, and by any
+means.
