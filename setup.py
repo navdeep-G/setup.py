@@ -22,20 +22,63 @@ AUTHOR = 'Awesome Soul'
 REQUIRED = [
     # 'requests', 'maya', 'records',
 ]
+# Import the README, and other files. And use them as the long-description.
+# Note: this will only work if 'README.rst' and other files are
+# present in your MANIFEST.in file!
+FILES = ['README.rst']  # 'CONTRIBUTORS.rst', 'CHANGELOG.rst']
 
 # The rest you shouldn't have to touch too much :)
 # ------------------------------------------------
 # Except, perhaps the License and Trove Classifiers!
 # If you do change the License, remember to change the Trove Classifier for that!
+__DIRECTIVES_BREAKS_PYPI__ = ['|version|', '|today|']
 
-here = os.path.abspath(os.path.dirname(__file__))
 
-# Import the README and use it as the long-description.
-# Note: this will only work if 'README.rst' is present in your MANIFEST.in file!
-with io.open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
-    long_description = '\n' + f.read()
+def read_files(*files):
+    """Read files into setup"""
+    text = ""
+    for single_file in files:
+        content = read(single_file)
+        text = text + content + "\n"
+    return text
+
+
+def read(afile):
+    """Read a file into setup"""
+    with io.open(afile, encoding='utf-8') as opened_file:
+        content = filter_out_test_code(opened_file)
+        content = "".join(list(content))
+        return content
+
+
+def filter_out_test_code(file_handle):
+    """Filter out testcode, magic directives that will break pypi"""
+    found_test_code = False
+    for line in file_handle.readlines():
+        if line.startswith('.. testcode:'):
+            found_test_code = True
+            continue
+        if found_test_code is True:
+            if line.startswith('  '):
+                continue
+            else:
+                empty_line = line.strip()
+                if len(empty_line) == 0:
+                    continue
+                else:
+                    found_test_code = False
+                    yield line
+        else:
+            # Filter out directive lines
+            for keyword in __DIRECTIVES_BREAKS_PYPI__:
+                if keyword in line:
+                    break
+            else:
+                yield line
+
 
 # Load the package's __version__.py module as a dictionary.
+here = os.path.abspath(os.path.dirname(__file__))
 about = {}
 with open(os.path.join(here, NAME, '__version__.py')) as f:
     exec(f.read(), about)
@@ -46,7 +89,7 @@ class PublishCommand(Command):
 
     description = 'Build and publish the package.'
     user_options = []
-    
+
     @staticmethod
     def status(s):
         """Prints things in bold."""
@@ -79,7 +122,7 @@ setup(
     name=NAME,
     version=about['__version__'],
     description=DESCRIPTION,
-    long_description=long_description,
+    long_description=read_files(*FILES),
     author=AUTHOR,
     author_email=EMAIL,
     url=URL,
@@ -108,7 +151,7 @@ setup(
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy'
     ],
-    # $ setup.py publish support. 
+    # $ setup.py publish support.
     cmdclass={
         'publish': PublishCommand,
     },
