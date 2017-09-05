@@ -9,6 +9,8 @@ In short, ``setup.py`` files can be daunting to approach, when first starting ou
 
 `Check out the example! <https://github.com/kennethreitz/setup.py/blob/master/setup.py>`_
 
+.. image:: https://farm1.staticflickr.com/628/33173824932_58add34581_k_d.jpg
+
 ✨🍰✨
 
 
