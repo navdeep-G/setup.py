@@ -11,8 +11,6 @@ In short, ``setup.py`` files can be daunting to approach, when first starting ou
 
 .. image:: https://farm1.staticflickr.com/628/33173824932_58add34581_k_d.jpg
 
-✨🍰✨
-
 
 To Do
 -----
@@ -38,3 +36,5 @@ Anyone is free to copy, modify, publish, use, compile, sell, or
 distribute this software, either in source code form or as a compiled
 binary, for any purpose, commercial or non-commercial, and by any
 means.
+
+✨🍰✨
