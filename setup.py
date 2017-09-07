@@ -46,7 +46,7 @@ class PublishCommand(Command):
 
     description = 'Build and publish the package.'
     user_options = []
-    
+
     @staticmethod
     def status(s):
         """Prints things in bold."""
@@ -62,7 +62,7 @@ class PublishCommand(Command):
         try:
             self.status('Removing previous builds…')
             rmtree(os.path.join(here, 'dist'))
-        except FileNotFoundError:
+        except OSError:
             pass
 
         self.status('Building Source and Wheel (universal) distribution…')
@@ -108,7 +108,7 @@ setup(
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy'
     ],
-    # $ setup.py publish support. 
+    # $ setup.py publish support.
     cmdclass={
         'publish': PublishCommand,
     },
