@@ -92,7 +92,7 @@ setup(
     # },
     install_requires=REQUIRED,
     include_package_data=True,
-    license='ISC',
+    license='MIT',
     classifiers=[
         # Trove classifiers
         # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
