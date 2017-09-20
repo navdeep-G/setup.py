@@ -41,8 +41,8 @@ with open(os.path.join(here, NAME, '__version__.py')) as f:
     exec(f.read(), about)
 
 
-class PublishCommand(Command):
-    """Support setup.py publish."""
+class UploadCommand(Command):
+    """Support setup.py upload."""
 
     description = 'Build and publish the package.'
     user_options = []
@@ -110,6 +110,6 @@ setup(
     ],
     # $ setup.py publish support.
     cmdclass={
-        'publish': PublishCommand,
+        'upload': UploadCommand,
     },
 )
