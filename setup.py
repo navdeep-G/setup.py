@@ -25,6 +25,11 @@ REQUIRED = [
     # 'requests', 'maya', 'records',
 ]
 
+# What packages are optional?
+EXTRAS = [
+    'django'
+]
+
 # The rest you shouldn't have to touch too much :)
 # ------------------------------------------------
 # Except, perhaps the License and Trove Classifiers!
@@ -89,7 +94,7 @@ setup(
     version=about['__version__'],
     description=DESCRIPTION,
     long_description=long_description,
-    long_description_content_type='text/markdown'
+    long_description_content_type='text/markdown',
     author=AUTHOR,
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
@@ -102,6 +107,7 @@ setup(
     #     'console_scripts': ['mycli=mymodule:cli'],
     # },
     install_requires=REQUIRED,
+    extras_require=EXTRAS,
     include_package_data=True,
     license='MIT',
     classifiers=[
