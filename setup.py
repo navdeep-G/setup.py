@@ -38,7 +38,7 @@ try:
     with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
         long_description = '\n' + f.read()
 except FileNotFoundError:
-    long_description = ''
+    long_description = DESCRIPTION
 
 # Load the package's __version__.py module as a dictionary.
 about = {}
