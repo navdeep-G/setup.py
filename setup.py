@@ -50,6 +50,7 @@ about = {}
 if not VERSION:
     with open(os.path.join(here, NAME, '__version__.py')) as f:
         exec(f.read(), about)
+        about['__version__'] = '.'.join(map(str, about['VERSION']))
 else:
     about['__version__'] = VERSION
 
