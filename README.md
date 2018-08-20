@@ -20,8 +20,7 @@ copy–paste from :)
 
 ## Additions for binder
 
-It is convenient to provide an [example Jupyter notebook ](example_notebook/import_mypackage.ipynb) for a new package and add the hooks necessary to run the example with Binder. However, normally the package will not be included in the python path. To do that, one needs a setup.py for the package and to include `pip install -e .[develop]` in the [binder/postBuild](binder/postBuild) file. Once this is done, it is possible to use the package from within Binder.
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/cranmer/setup.py/master?filepath=example_notebook%2Fimport_mypackage.ipynb)
+It is convenient to provide an [example Jupyter notebook ](example_notebook/import_mypackage.ipynb) for a new package and add the hooks necessary to run the example with Binder. However, normally the package will not be included in the python path. To do that, one needs a `setup.py` for the package (see [binder docs](https://mybinder.readthedocs.io/en/latest/using.html#setup-py)). Once this is done, it is possible to import the package in a notebook running within Binder. [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/cranmer/setup.py/master?filepath=example_notebook%2Fimport_mypackage.ipynb)
 
 
 ![image]
