@@ -16,6 +16,9 @@ starting out — even Guido has been heard saying, "everyone cargo cults
 thems". It's true — so, I want this repo to be the best place to
 copy–paste from :)
 
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/cranmer/setup.py/master)
+
+
 [Check out the example!][an example setup.py]
 
 ![image]
