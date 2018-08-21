@@ -1,5 +1,4 @@
 # python package with setup.py
-=======================
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/cranmer/setup.py/master?filepath=example_notebook%2Fimport_mypackage.ipynb)
 
