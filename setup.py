@@ -123,7 +123,7 @@ setup(
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy'
     ],
-    # $ setup.py publish support.
+    # $ ./setup.py upload support.
     cmdclass={
         'upload': UploadCommand,
     },
