@@ -45,10 +45,10 @@ try:
 except FileNotFoundError:
     long_description = DESCRIPTION
 
-# Load the package's __version__.py module as a dictionary.
+# Load the package's _version.py module as a dictionary.
 about = {}
 if not VERSION:
-    with open(os.path.join(here, NAME, '__version__.py')) as f:
+    with open(os.path.join(here, NAME, '_version.py')) as f:
         exec(f.read(), about)
         about['__version__'] = '.'.join(map(str, about['VERSION']))
 else:
