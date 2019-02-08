@@ -103,6 +103,8 @@ setup(
     python_requires=REQUIRES_PYTHON,
     url=URL,
     packages=find_packages(exclude=('tests',)),
+    # If you're using python3 implicit namespace packages (ie: no __init__.pys)
+    # you will want to use find_namespace_packages() instead.
     # If your package is a single module, use this instead of 'packages':
     # py_modules=['mypackage'],
 
