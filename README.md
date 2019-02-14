@@ -33,6 +33,7 @@ More Resources
 --------------
 
 -   [What is setup.py?] on Stack Overflow
+-   [Official Python Packaging User Guide](https://packaging.python.org)
 -   [The Hitchhiker's Guide to Packaging]
 -   [Cookiecutter template for a Python package]
 
