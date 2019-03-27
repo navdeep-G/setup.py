@@ -38,12 +38,35 @@ EXTRAS = {
 here = os.path.abspath(os.path.dirname(__file__))
 
 # Import the README and use it as the long-description.
-# Note: this will only work if 'README.md' is present in your MANIFEST.in file!
-try:
-    with io.open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
-        long_description = '\n' + f.read()
-except FileNotFoundError:
-    long_description = DESCRIPTION
+# Note: this will only work if the README file is present in your MANIFEST.in file!
+# Make sure the filename appears in this list of options.
+possible_readme_names = ['README.rst', 'README.md', 'README.txt', 'README']
+
+# Handle turning a README file into long_description
+long_description = DESCRIPTION
+readme_fname = ''
+for fname in possible_readme_names:
+    try:
+        with io.open(os.path.join(here, fname), encoding='utf-8') as f:
+            long_description = '\n' + f.read()
+    except IOError:
+        # doesn't exist
+        continue
+    # exists
+    readme_fname = fname
+    break
+
+# Infer the content MIME type of the README file from its extension.
+# If the contents of your README do not match its extension, manually assign
+# long_description_content_type to the appropriate value.
+readme_ext = os.path.splitext(readme_fname)[1]
+if readme_ext.lower() == '.rst':
+    long_description_content_type = 'text/x-rst'
+elif readme_ext.lower() == '.md':
+    long_description_content_type = 'text/markdown'
+else:
+    long_description_content_type = 'text/plain'
+
 
 # Load the package's __version__.py module as a dictionary.
 about = {}
