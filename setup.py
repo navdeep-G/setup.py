@@ -25,6 +25,22 @@ REQUIRED = [
     # 'requests', 'maya', 'records',
 ]
 
+try:
+    import pipenv
+    from pipenv.vendor.requirementslib.models.pipfile import Pipfile
+
+    try:
+        packages = Pipfile().get("packages")
+        for name, version in packages.items():
+            if version == "*":
+                REQUIRED.append(name)
+            else:
+                REQUIRED.append("{}{}".format(name, version))
+    except pipenv.vendor.requirementslib.exceptions.RequirementError:
+        pass
+except ImportError:
+    pass
+
 # What packages are optional?
 EXTRAS = {
     # 'fancy feature': ['django'],
@@ -88,7 +104,7 @@ class UploadCommand(Command):
         self.status('Pushing git tags…')
         os.system('git tag v{0}'.format(about['__version__']))
         os.system('git push --tags')
-        
+
         sys.exit()
 
 
