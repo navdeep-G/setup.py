@@ -79,6 +79,13 @@ class UploadCommand(Command):
         except OSError:
             pass
 
+        try:
+            import twine
+        except ImportError:
+            errmsg = ("\n'Twine' is not installed.\n\nRun: \n\tpip install twine")
+            self.status(errmsg)
+            raise SystemExit(1)
+
         self.status('Building Source and Wheel (universal) distribution…')
         os.system('{0} setup.py sdist bdist_wheel --universal'.format(sys.executable))
 
@@ -88,7 +95,7 @@ class UploadCommand(Command):
         self.status('Pushing git tags…')
         os.system('git tag v{0}'.format(about['__version__']))
         os.system('git push --tags')
-        
+
         sys.exit()
 
 
