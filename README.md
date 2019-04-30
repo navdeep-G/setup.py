@@ -22,6 +22,14 @@ copy–paste from :)
 
 ![image]
 
+Installation
+-----
+
+```bash
+cd your_project
+wget https://raw.githubusercontent.com/kennethreitz/setup.py/master/setup.py -O setup.py
+```
+
 To Do
 -----
 
