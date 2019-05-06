@@ -16,8 +16,6 @@ starting out — even Guido has been heard saying, "everyone cargo cults
 thems". It's true — so, I want this repo to be the best place to
 copy–paste from :)
 
-**If you're interested in financially supporting Kenneth Reitz open source, consider [visiting this link](https://cash.me/$KennethReitz). Your support helps tremendously with sustainability of motivation, as Open Source is no longer part of my day job.**
-
 [Check out the example!][an example setup.py]
 
 ![image]
