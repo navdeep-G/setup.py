@@ -25,7 +25,13 @@ Installation
 
 ```bash
 cd your_project
+
+# Download the setup.py file:
+#  download with wget
 wget https://raw.githubusercontent.com/kennethreitz/setup.py/master/setup.py -O setup.py
+
+#  download with curl
+curl -O https://raw.githubusercontent.com/kennethreitz/setup.py/master/setup.py
 ```
 
 To Do
