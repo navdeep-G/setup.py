@@ -18,8 +18,6 @@ copy–paste from :)
 
 [Check out the example!][an example setup.py]
 
-![image]
-
 Installation
 -----
 
@@ -57,8 +55,6 @@ This is free and unencumbered software released into the public domain.
 Anyone is free to copy, modify, publish, use, compile, sell, or
 distribute this software, either in source code form or as a compiled
 binary, for any purpose, commercial or non-commercial, and by any means.
-
-✨🍰✨
 
   [an example setup.py]: https://github.com/kennethreitz/setup.py/blob/master/setup.py
   [PyPi]: https://docs.python.org/3/distutils/packageindex.html
