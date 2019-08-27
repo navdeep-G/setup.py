@@ -26,10 +26,10 @@ cd your_project
 
 # Download the setup.py file:
 #  download with wget
-wget https://raw.githubusercontent.com/kennethreitz/setup.py/master/setup.py -O setup.py
+wget https://raw.githubusercontent.com/navdeep-G/setup.py/master/setup.py -O setup.py
 
 #  download with curl
-curl -O https://raw.githubusercontent.com/kennethreitz/setup.py/master/setup.py
+curl -O https://raw.githubusercontent.com/navdeep-G/setup.py/master/setup.py
 ```
 
 To Do
@@ -56,7 +56,7 @@ Anyone is free to copy, modify, publish, use, compile, sell, or
 distribute this software, either in source code form or as a compiled
 binary, for any purpose, commercial or non-commercial, and by any means.
 
-  [an example setup.py]: https://github.com/kennethreitz/setup.py/blob/master/setup.py
+  [an example setup.py]: https://github.com/navdeep-G/setup.py/blob/master/setup.py
   [PyPi]: https://docs.python.org/3/distutils/packageindex.html
   [Twine]: https://pypi.python.org/pypi/twine
   [image]: https://farm1.staticflickr.com/628/33173824932_58add34581_k_d.jpg
