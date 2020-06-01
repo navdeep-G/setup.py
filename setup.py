@@ -59,7 +59,11 @@ class UploadCommand(Command):
     """Support setup.py upload."""
 
     description = 'Build and publish the package.'
-    user_options = []
+    user_options = [
+        ('test', None, 'Upload the package to PyPI test mirror.'),
+        ('username=', None, 'Specify the username used uploading to PyPI.'),
+        ('password=', None, 'Specify the password used uploading to PyPI.'),
+    ]
 
     @staticmethod
     def status(s):
@@ -67,7 +71,9 @@ class UploadCommand(Command):
         print('\033[1m{0}\033[0m'.format(s))
 
     def initialize_options(self):
-        pass
+        self.username = None
+        self.password = None
+        self.test = None
 
     def finalize_options(self):
         pass
@@ -83,7 +89,13 @@ class UploadCommand(Command):
         os.system('{0} setup.py sdist bdist_wheel --universal'.format(sys.executable))
 
         self.status('Uploading the package to PyPI via Twine…')
-        os.system('twine upload dist/*')
+        cmd = 'twine upload%s%s%s dist/*' % (
+            ' --repository-url https://test.pypi.org/legacy/'
+            if self.test else ',
+            ' --password %s' % self.password if self.password else ',
+            ' --username %s' % self.username if self.username else ',
+        )
+        os.system(cmd)
 
         self.status('Pushing git tags…')
         os.system('git tag v{0}'.format(about['__version__']))
@@ -103,7 +115,7 @@ setup(
     author_email=EMAIL,
     python_requires=REQUIRES_PYTHON,
     url=URL,
-    packages=find_packages(exclude=["tests", "*.tests", "*.tests.*", "tests.*"]),
+    packages=find_packages(exclude=['tests', '*.tests', '*.tests.*', 'tests.*']),
     # If your package is a single module, use this instead of 'packages':
     # py_modules=['mypackage'],
 
