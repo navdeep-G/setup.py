@@ -8,6 +8,6 @@ ssh-add id_rsa
 
 echo ${PYPI_REPO_CONFIG} > ~/.pypirc
 
-pip install -y twine
+pip install twine
 
 python setup.py upload
