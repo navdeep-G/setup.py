@@ -18,4 +18,6 @@ cat ~/.pypirc
 
 pip install twine
 
+python feature_version.py
+
 python setup.py upload
