@@ -5,5 +5,10 @@ image_resource:
   source: {repository: python}
 
 run:
+  path: ls
+  args: ["-alR"]
+
+run:
   path: python
-  args: [setup.py upload]
+  args: ["setup.py", "upload"]
+  dir: 'repo/lib/'
