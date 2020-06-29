@@ -89,3 +89,6 @@ ENV/
 .ropeproject
 *.npy
 *.pkl
+
+# custom python version file
+*/__version__.py
