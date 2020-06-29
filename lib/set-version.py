@@ -14,7 +14,7 @@ def status(s):
 # TODO: add git version sourcing
 #
 def set_version(artifact='lib', master=True, release=False):
-    status('Setting version for {artifact} artifact')
+    status(f"Setting version for {artifact} artifact")
 
     current_version = os.popen(f"git describe --match {artifact}* --tags").read()
     # TODO: add default version/error on no tag (master -> error; release -> error; feature -> 0.0-devTIMESTAMP)
