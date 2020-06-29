@@ -10,15 +10,11 @@ def status(s):
     """Prints things in bold."""
     print('\033[1m{0}\033[0m'.format(s))
 
-#
-# TODO: add git version sourcing
-#
-def set_version(artifact='lib', master=True, release=False):
+def set_version(artifact='', master=False, release=False):
     status(f"Setting version for {artifact} artifact")
 
     current_version = os.popen(f"git describe --match {artifact}* --tags").read()
     if not current_version:
-        # TODO: add default version/error on no tag (master -> error; release -> error; feature -> 0.0-devTIMESTAMP)
         current_version = "0.0"
         status(f"No tag found for {artifact}, resetting to {current_version}")
     else:
