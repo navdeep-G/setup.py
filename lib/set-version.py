@@ -13,7 +13,7 @@ def status(s):
 def set_version(artifact='', master=False, release=False):
     status(f"Setting version for {artifact} artifact")
 
-    current_version = os.popen(f"git describe --match {artifact}* --tags").read()
+    current_version = os.popen(f"git describe --match {artifact}-release-* --tags").read()
     if not current_version:
         current_version = "0.0"
         status(f"No tag found for {artifact}, resetting to {current_version}")
@@ -28,7 +28,7 @@ def set_version(artifact='', master=False, release=False):
     if release:
         new_version = str(current_version_array[0]+1) + ".0"
     elif master:
-        new_version = str(current_version_array[0]) + "." + str(current_version_array[1]+1)
+        new_version = str(current_version_array[0]) + "." + str(current_version_array[1]+1) "-rc" + datetime.datetime.now().strftime("%y%m%d%H%M%S")
     else:
         new_version = str(current_version_array[0]) + "." + str(current_version_array[1]) + "-dev" + datetime.datetime.now().strftime("%y%m%d%H%M%S")
     # TODO: add local version x.y-devTIMESTAMP[local]
