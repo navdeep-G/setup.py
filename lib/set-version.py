@@ -17,8 +17,12 @@ def set_version(artifact='lib', master=True, release=False):
     status(f"Setting version for {artifact} artifact")
 
     current_version = os.popen(f"git describe --match {artifact}* --tags").read()
-    # TODO: add default version/error on no tag (master -> error; release -> error; feature -> 0.0-devTIMESTAMP)
-    status(f"Current version for {artifact} is {current_version}")
+    if not current_version:
+        # TODO: add default version/error on no tag (master -> error; release -> error; feature -> 0.0-devTIMESTAMP)
+        current_version = "0.0"
+        status(f"No tag found for {artifact}, resetting to {current_version}")
+    else:
+        status(f"Current version for {artifact} is {current_version}")
 
     current_version_array = re.findall(r'\d+', current_version)
     current_version_array = [int(i) for i in current_version_array[0:2]]
