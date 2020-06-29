@@ -28,7 +28,7 @@ def set_version(artifact='', master=False, release=False):
     if release:
         new_version = str(current_version_array[0]+1) + ".0"
     elif master:
-        new_version = str(current_version_array[0]) + "." + str(current_version_array[1]+1) "-rc" + datetime.datetime.now().strftime("%y%m%d%H%M%S")
+        new_version = str(current_version_array[0]) + "." + str(current_version_array[1]) + "-rc" + datetime.datetime.now().strftime("%y%m%d%H%M%S")
     else:
         new_version = str(current_version_array[0]) + "." + str(current_version_array[1]) + "-dev" + datetime.datetime.now().strftime("%y%m%d%H%M%S")
     # TODO: add local version x.y-devTIMESTAMP[local]
