@@ -41,7 +41,7 @@ def set_version(artifact='lib', master=True, release=False):
     version_file.write(f"__version__ = \'{new_version}\'")
     version_file.close()
 
-set_version(artifact='lib', master=True, release=False)
+set_version('lib', True, False)
 
 
 #
