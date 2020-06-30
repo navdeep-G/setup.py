@@ -6,7 +6,7 @@ def status(s):
     """Prints things in bold."""
     print('\033[1m{0}\033[0m'.format(s))
 
-def set_version(artifact='', master=False, release=False):
+def set_version(artifact='', bump_type=None):
     status(f"Setting version for {artifact} artifact")
 
     current_version = os.popen(f"git describe --match {artifact}-release-* --tags").read()
@@ -21,12 +21,12 @@ def set_version(artifact='', master=False, release=False):
 
     status(f"Version numbers for {artifact} are {current_version_array}")
 
-    if release:
+    if bump_type == "release":
         new_version = str(current_version_array[0]+1) + ".0"
-    elif master:
-        new_version = str(current_version_array[0]) + "." + str(current_version_array[1]) + "-rc" + datetime.datetime.now().strftime("%y%m%d%H%M%S")
+    elif bump_type == "feature":
+        new_version = str(current_version_array[0]) + "." + str(current_version_array[1]) + "dev" + datetime.datetime.now().strftime("%y%m%d%H%M%S")
     else:
-        new_version = str(current_version_array[0]) + "." + str(current_version_array[1]) + "-dev" + datetime.datetime.now().strftime("%y%m%d%H%M%S")
+        new_version = str(current_version_array[0]) + "." + str(current_version_array[1]) + "rc" + datetime.datetime.now().strftime("%y%m%d%H%M%S")
     # TODO: add local version x.y-devTIMESTAMP[local]
 
     status(f"New version is {new_version}")
@@ -37,7 +37,7 @@ def set_version(artifact='', master=False, release=False):
     version_file.write(f"__version__ = \'{new_version}\'")
     version_file.close()
 
-set_version('lib', True, False)
+set_version('lib', os.getenv('BUMP_TYPE', None))
 
 
 

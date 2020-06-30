@@ -89,8 +89,6 @@ class UploadCommand(Command):
         os.system('git tag lib-{0}'.format(about['__version__']))
         os.system('git push --tags')
 
-        # TODO: add version bump 
-
         sys.exit()
 
 
@@ -131,5 +129,3 @@ setup(
         'upload': UploadCommand,
     },
 )
-
-# BUMP VERSION
