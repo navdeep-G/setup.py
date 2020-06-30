@@ -86,7 +86,10 @@ class UploadCommand(Command):
         os.system('twine upload --repository timefcuk-concourse-ci-test dist/*')
 
         self.status('Pushing git tags…')
-        os.system('git tag lib-{0}'.format(about['__version__']))
+        if os.getenv('BUMP_TYPE', None) == "release":
+            os.system('git tag lib-release-{0}'.format(about['__version__']))
+        else:
+            os.system('git tag lib-{0}'.format(about['__version__']))
         os.system('git push --tags')
 
         sys.exit()
