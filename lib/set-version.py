@@ -2,10 +2,6 @@ import re
 import datetime
 import os
 
-#
-# TODO: add version validation step
-#
-
 def status(s):
     """Prints things in bold."""
     print('\033[1m{0}\033[0m'.format(s))
@@ -42,17 +38,6 @@ def set_version(artifact='', master=False, release=False):
     version_file.close()
 
 set_version('lib', True, False)
-
-
-#
-# print("Incrementing minor version")
-# print(f"Current version is {__version__}")
-# version_numbers = re.findall(r'\d+', __version__)
-# version_numbers = [int(i) for i in version_numbers]
-#
-# __version__ = str(version_numbers[0]) + "." + str(version_numbers[1]+1)
-#
-# print(f"Changed version to {__version__}")
 
 
 
