@@ -24,9 +24,9 @@ def set_version(artifact='', bump_type=None):
     if bump_type == "release":
         new_version = str(current_version_array[0]+1) + ".0"
     elif bump_type == "feature":
-        new_version = str(current_version_array[0]) + "." + str(current_version_array[1]) + "dev" + datetime.datetime.now().strftime("%y%m%d%H%M%S")
+        new_version = str(current_version_array[0]) + "." + str(current_version_array[1]+1) + "dev" + datetime.datetime.now().strftime("%y%m%d%H%M%S")
     else:
-        new_version = str(current_version_array[0]) + "." + str(current_version_array[1]) + "rc" + datetime.datetime.now().strftime("%y%m%d%H%M%S")
+        new_version = str(current_version_array[0]) + "." + str(current_version_array[1]+1) + "rc" + datetime.datetime.now().strftime("%y%m%d%H%M%S")
     # TODO: add local version x.y-devTIMESTAMP[local]
 
     status(f"New version is {new_version}")
