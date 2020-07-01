@@ -4,6 +4,7 @@ set -x
 
 export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 
+# secrets management
 echo -e ${GITHUB_SSH_CREDENTIALS} > ~/id_rsa_base64
 sed -i 's/^ //g' ~/id_rsa_base64
 base64 -d ~/id_rsa_base64 > ~/id_rsa
