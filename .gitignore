@@ -93,5 +93,5 @@ ENV/
 # custom python version file
 */__version__.py
 
-# exclude pipeline
-*/universal_pipeline.yml
+# exclude secrets file
+*/secrets.yaml
